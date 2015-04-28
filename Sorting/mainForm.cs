@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace Sorting
 {
 
-    public partial class Form1 : Form
+    public partial class mainForm : Form
     {
 
         public static class Globals
@@ -326,7 +326,7 @@ namespace Sorting
             }
         }
 
-        public Form1()
+        public mainForm()
         {
             InitializeComponent();
 
