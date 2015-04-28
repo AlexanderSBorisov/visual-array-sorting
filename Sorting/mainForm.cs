@@ -286,7 +286,6 @@ namespace Sorting
                     for (int i = k; i > 0; i--)
                         if (s[i] < s[i - 1])
                         {
-                            // swap
                             int temp = s[i];
                             s[i] = s[i - 1];
                             s[i - 1] = temp;
@@ -296,7 +295,6 @@ namespace Sorting
                     for (int i = 0; i < k; i++)
                         if (s[i] > s[i + 1])
                         {
-                            // swap
                             int temp = s[i];
                             s[i] = s[i + 1];
                             s[i + 1] = temp;
@@ -471,15 +469,6 @@ namespace Sorting
 
 
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -487,10 +476,6 @@ namespace Sorting
             Globals.timeout = trackBar1.Value;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
