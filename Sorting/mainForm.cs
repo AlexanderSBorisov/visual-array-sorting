@@ -244,6 +244,117 @@ namespace Sorting
 
                 }
             }
+
+
+            public void CountingSort(SortStore s)
+            {
+                int max = s[0];
+
+                for (int i = 0; i < s.Array.Length; i++)
+                {
+                    if (s[i] > max)
+                    {
+                        max = s[i];
+                    }
+                }
+
+                int[] counts = new int[max + 1];
+
+                for (int i = 0; i < s.Array.Length; i++)
+                {
+                    counts[s[i]]++;
+                }
+
+                int j = 0;
+                for (int i = 0; i < counts.Length; i++)
+                {
+                    while (counts[i] > 0)
+                    {
+                        s[j] = i;
+                        j++;
+                        counts[i]--;
+                    }
+                }
+
+            }
+
+            public void CocktailSort(SortStore s)
+            {
+                for (int k = s.Array.Length - 1; k > 0; k--)
+                {
+                    bool swapped = false;
+                    for (int i = k; i > 0; i--)
+                        if (s[i] < s[i - 1])
+                        {
+                            // swap
+                            int temp = s[i];
+                            s[i] = s[i - 1];
+                            s[i - 1] = temp;
+                            swapped = true;
+                        }
+
+                    for (int i = 0; i < k; i++)
+                        if (s[i] > s[i + 1])
+                        {
+                            // swap
+                            int temp = s[i];
+                            s[i] = s[i + 1];
+                            s[i + 1] = temp;
+                            swapped = true;
+                        }
+
+                    if (!swapped)
+                        break;
+                }
+            }
+
+
+            public void GnomeSort(SortStore s)
+            {
+                for (int i = 1, temp_value; i < s.Array.Length; )
+                {
+                    if (s[i - 1] <= s[i])
+                        i += 1;
+                    else
+                    {
+                        temp_value = s[i - 1];
+                        s[i - 1] = s[i];
+                        s[i] = temp_value;
+                        i -= 1;
+                        if (i == 0)
+                            i = 1;
+                    }
+                }
+            }
+
+
+            public void ShellSort(SortStore s)
+            {
+                int j, temp = 0;
+                int increment = (s.Array.Length) / 2;
+                while (increment > 0)
+                {
+                    for (int index = 0; index < s.Array.Length; index++)
+                    {
+                        j = index;
+                        temp = s[index];
+                        while ((j >= increment) && s[j - increment] > temp)
+                        {
+                            s[j] = s[j - increment];
+                            j = j - increment;
+                        }
+                        s[j] = temp;
+                    }
+                    if (increment / 2 != 0)
+                        increment = increment / 2;
+                    else if (increment == 1)
+                        increment = 0;
+                    else
+                        increment = 1;
+                }
+            }
+
+
         }
 
 
@@ -292,6 +403,34 @@ namespace Sorting
                 Globals.MathThread = new Thread(() => { m.InsertionSort(s); });
             }
 
+            if (cbSortSelector.Text == "Counting sort")
+            {
+                Globals.arraySize = 400;
+                Globals.frameSize = 2;
+                Globals.MathThread = new Thread(() => { m.CountingSort(s); });
+            }
+
+
+            if (cbSortSelector.Text == "Cocktail sort")
+            {
+                Globals.arraySize = 200;
+                Globals.frameSize = 3;
+                Globals.MathThread = new Thread(() => { m.CocktailSort(s); });
+            }
+
+            if (cbSortSelector.Text == "Shell sort")
+            {
+                Globals.arraySize = 200;
+                Globals.frameSize = 3;
+                Globals.MathThread = new Thread(() => { m.ShellSort(s); });
+            }
+
+            if (cbSortSelector.Text == "Gnome sort")
+            {
+                Globals.arraySize = 200;
+                Globals.frameSize = 3;
+                Globals.MathThread = new Thread(() => { m.GnomeSort(s); });
+            }
 
             s.StoreInit();
             v.ViewInit(this, s);

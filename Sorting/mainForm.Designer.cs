@@ -55,7 +55,11 @@
             "Bubble sort",
             "Not so bubble sort",
             "Insertion sort",
-            "Radix sort"});
+            "Radix sort",
+            "Counting sort",
+            "Gnome sort",
+            "Shell sort",
+            "Cocktail sort"});
             this.cbSortSelector.Location = new System.Drawing.Point(449, 575);
             this.cbSortSelector.Name = "cbSortSelector";
             this.cbSortSelector.Size = new System.Drawing.Size(135, 21);
@@ -102,7 +106,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Form1
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,7 +117,7 @@
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.cbSortSelector);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "mainForm";
             this.Text = "Sorting Visuals";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
