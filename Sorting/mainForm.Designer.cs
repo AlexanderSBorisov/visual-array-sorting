@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbrand = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,22 @@
             this.cbrand.Text = "Randomize? (unchecking is interesting on Radix sort)";
             this.cbrand.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 614);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(442, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Legend: select alghoritm and watch it works. Red for value changes, green for arr" +
+    "ay access.";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 653);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbrand);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -134,6 +146,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbrand;
+        private System.Windows.Forms.Label label3;
 
 
     }
