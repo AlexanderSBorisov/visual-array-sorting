@@ -33,6 +33,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbrand = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,11 +95,24 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "slower";
             // 
+            // cbrand
+            // 
+            this.cbrand.AutoSize = true;
+            this.cbrand.Checked = true;
+            this.cbrand.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbrand.Location = new System.Drawing.Point(674, 577);
+            this.cbrand.Name = "cbrand";
+            this.cbrand.Size = new System.Drawing.Size(276, 17);
+            this.cbrand.TabIndex = 7;
+            this.cbrand.Text = "Randomize? (unchecking is interesting on Radix sort)";
+            this.cbrand.UseVisualStyleBackColor = true;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 653);
+            this.Controls.Add(this.cbrand);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar1);
@@ -119,6 +133,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cbrand;
 
 
     }

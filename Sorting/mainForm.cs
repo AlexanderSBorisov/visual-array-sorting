@@ -98,7 +98,7 @@ namespace Sorting
             public event Action<int> ValueAccessed;
 
             //initialize array of random numbers
-            public void StoreInit()
+            public void StoreInitRandom()
             {
                 Array = new int[Globals.arraySize];
                 //Fill array with numbers
@@ -114,6 +114,16 @@ namespace Sorting
                     int t = Array[r];
                     Array[r] = Array[i];
                     Array[i] = t;
+                }
+            }
+
+            public void StoreInitSorted()
+            {
+                Array = new int[Globals.arraySize];
+                //Fill array with numbers
+                for (int i = 0; i < Array.Length; i++)
+                {
+                    Array[i] = i;
                 }
             }
 
@@ -329,7 +339,7 @@ namespace Sorting
             public void ShellSort(SortStore s)
             {
                 int j, temp = 0;
-                int increment = (s.Array.Length) / 2;
+                int increment = (s.Array.Length)/2;
                 while (increment > 0)
                 {
                     for (int index = 0; index < s.Array.Length; index++)
@@ -343,8 +353,8 @@ namespace Sorting
                         }
                         s[j] = temp;
                     }
-                    if (increment / 2 != 0)
-                        increment = increment / 2;
+                    if (increment/2 != 0)
+                        increment = increment/2;
                     else if (increment == 1)
                         increment = 0;
                     else
@@ -430,7 +440,11 @@ namespace Sorting
                 Globals.MathThread = new Thread(() => { m.GnomeSort(s); });
             }
 
-            s.StoreInit();
+            if (cbrand.Checked == true)
+                s.StoreInitRandom();
+            else
+                s.StoreInitSorted();
+             
             v.ViewInit(this, s);
 
             //connect store class with view class, while store class will be changed by math class
@@ -462,6 +476,7 @@ namespace Sorting
                 }
             }
         }
+
 
         public mainForm()
         {
